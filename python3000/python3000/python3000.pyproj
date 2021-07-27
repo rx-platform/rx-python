@@ -21,28 +21,20 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="buffer_cut.py">
+    <Compile Include="OpcUa\OpcUaMessages.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="deserialization.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="error.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="header_msg.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="send_msg.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="header_hello.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="connect_on_server.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="OpcUa\OpcUaTransport.py" />
+    <Compile Include="OpcUa\RxBufferWriter.py" />
+    <Compile Include="OpcUa\RxBufferReader.py" />
     <Compile Include="python3000.py" />
+    <Compile Include="RxProtocol\RxProtocolConnection.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RxProtocol\" />
+    <Folder Include="OpcUa\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
