@@ -1,3 +1,5 @@
+from Error.error import *
+
 class OpcUaHeader :
     
     def __init__(self) :
@@ -15,10 +17,12 @@ class OpcUaHeader :
         if self.MessageType == 'ACK' and self.IsFinal == 'F' :
             return True
         elif self.MessageType == 'ERR' and self.IsFinal == 'F' :
+            error('Response error')
             return True
         elif self.MessageType == 'MSG' and (self.IsFinal == 'F' or self.IsFinal == 'C'):
             return True
         else :
+            error('Invalid message')
             return False
 
 

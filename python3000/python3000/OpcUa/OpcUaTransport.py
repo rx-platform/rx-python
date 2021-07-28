@@ -2,7 +2,7 @@ import asyncio
 from OpcUa.RxBufferWriter import *
 from OpcUa.RxBufferReader import *
 from OpcUa.OpcUaMessages import *
-
+from Error.error import *
 
 def CorrectPacketSize(data) :
 
@@ -46,9 +46,11 @@ class OpcUaTransport:
 
 
     async def connect(self) :
-        
-       self.reader, self.writer = await asyncio.open_connection(self.ip, self.port)
-
+       try:
+           self.reader, self.writer = await asyncio.open_connection(self.ip, self.port)
+       except:
+           error('Connection error')
+           return False
        # create hello message
        toSend=bytearray()
        toSend+='HELF'.encode()
@@ -73,7 +75,7 @@ class OpcUaTransport:
            return True
 
        else : 
-
+           error('Ack error')
            return False
 
     async def sendReceive(self, data) :
