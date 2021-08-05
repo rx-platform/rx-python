@@ -2,7 +2,7 @@ import asyncio
 from OpcUa.RxBufferWriter import *
 from OpcUa.RxBufferReader import *
 from OpcUa.OpcUaMessages import *
-from Error.error import *
+from OpcUa.OpcUaError import *
 
 def CorrectPacketSize(data) :
 

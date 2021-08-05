@@ -1,4 +1,4 @@
-from Error.error import *
+from OpcUa.OpcUaError import *
 
 class OpcUaHeader :
     
